@@ -1,0 +1,20 @@
+kind: pipeline
+type: docker
+name: Testing Python CI/CD
+
+
+steps:
+- name: Install and deploy
+  image: python
+  environment:
+    MY_PASS:
+      from_secret: MY_PASS
+  commands:
+  - pip3 install -r requirements.txt
+  - python3 bat.py
+
+trigger:
+  branch:
+    exclude:
+    - main
+    - master
