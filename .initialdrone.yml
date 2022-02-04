@@ -7,6 +7,8 @@ steps:
 - name: Hello World
   image: python
   environment:
+  commands:
+    - echo "Hello World"
 #    MY_PASS:
 #      from_secret: MY_PASS
 #  commands:
