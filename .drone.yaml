@@ -24,9 +24,9 @@ steps:
 
 - name: Deploy Configurations
   image: johnbreth/netauto
-  environment:
-    MY_SECRET:
-      from_secret: MY_SECRET
+#  environment:
+#    MY_SECRET:
+#      from_secret: MY_SECRET
   commands:
   - python bat.py
   when:
