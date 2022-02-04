@@ -4,17 +4,15 @@ name: Testing Python CI/CD
 
 
 steps:
-- name: Hello World
+- name: Install and Deploy
   image: python
-  environment:
-  commands:
-    - echo "Hello World"
+# environment:
 #    MY_PASS:
 #      from_secret: MY_PASS
-#  commands:
-#  - pip3 install -r requirements.txt
-#  - python3 bat.py
-#
+  commands:
+  - pip3 install -r requirements.txt
+  - python3 bat.py
+
 #trigger:
 #  branch:
 #    exclude:
