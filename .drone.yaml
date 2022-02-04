@@ -4,10 +4,10 @@ name: Testing Python CI/CD
 
 
 steps:
-- name: Black Code Format Check
-  image: johnbreth/netauto
-  commands:
-  - black . --check
+#- name: Black Code Format Check
+#  image: johnbreth/netauto
+#  commands:
+#  - black . --check
 
 #- name: Batfish Prechecks
 #  image: johnbreth/netauto
