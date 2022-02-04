@@ -4,6 +4,11 @@ name: Testing Python CI/CD
 
 
 steps:
+- name: Black Code Format Check
+  image: johnbreth/netauto
+  commands:
+  - black . --check
+
 - name: Install and Deploy
   image: johnbreth/netauto
 #  environment:
