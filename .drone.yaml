@@ -52,7 +52,7 @@ steps:
 #  host:
 #    path: /home/juliopdx/suz
 
-trigger:
-  event:
-    exclude:
-    - pull_request
+#trigger:
+#  event:
+#    exclude:
+#    - pull_request
