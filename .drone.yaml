@@ -29,10 +29,10 @@ steps:
 #      from_secret: MY_SECRET
   commands:
   - python bat.py
-  when:
-    branch:
-    - master
-    - main
+#  when:
+#    branch:
+#    - master
+#    - main
 
 #- name: Suzieq Check
 #  image: python:3.8
