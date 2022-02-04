@@ -5,12 +5,12 @@ name: Testing Python CI/CD
 
 steps:
 - name: Install and Deploy
-  image: python
+  image: johnbreth/netauto
 #  environment:
 #    MY_PASS:
 #      from_secret: MY_PASS
   commands:
-  - pip3 install -r requirements.txt
+#  - pip3 install -r requirements.txt
   - python3 bat.py
 
 #trigger:
