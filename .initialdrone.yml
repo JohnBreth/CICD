@@ -12,7 +12,7 @@ steps:
 - name: Install and Deploy
   image: johnbreth/netauto
   environment:
-    MY_PASS:
+    PASSWORD:
       from_secret: PASSWORD
   commands:
 #  - pip3 install -r requirements.txt
