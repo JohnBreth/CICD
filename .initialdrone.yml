@@ -11,9 +11,9 @@ steps:
 
 - name: Install and Deploy
   image: johnbreth/netauto
-#  environment:
-#    MY_PASS:
-#      from_secret: MY_PASS
+  environment:
+    MY_PASS:
+      from_secret: PASSWORD
   commands:
 #  - pip3 install -r requirements.txt
   - python3 bat.py
