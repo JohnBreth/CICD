@@ -9,6 +9,11 @@ steps:
   commands:
   - black . --check
 
+- name: Batfish Prechecks
+  image: johnbreth/netauto
+  commands:
+  - python test.py
+
 - name: Install and Deploy
   image: johnbreth/netauto
   environment:
