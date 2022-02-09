@@ -12,7 +12,7 @@ steps:
 - name: Batfish Prechecks
   image: johnbreth/netauto
   commands:
-  - python test.py
+  - python batfishcheck.py
 
 - name: Install and Deploy
   image: johnbreth/netauto
