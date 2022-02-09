@@ -1,0 +1,248 @@
+version 15.2
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+no service password-encryption
+service compress-config
+!
+hostname SW1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 8 $8$3n6Ke.4UnYNjgf$8hgF/r2A5iygLkYjmZcPixvMHA99PwAmoJOy6c43yJw
+!
+username jbc privilege 15 secret 8 $8$Fsc8RZOMYcc0Wv$IGbAhIXixBgKL6o3Rq9CZS1EKSxz.sLQhw0Q1/YIdG2
+username test privilege 15 secret 8 $8$9lQhX6CpBX6Wev$wP.55Ynnqfo0LjwJiicI0Ekl42RC16MrcESlY2MWHSw
+no aaa new-model
+clock timezone EST -5 0
+clock summer-time EDT recurring
+!
+!
+!
+!
+!
+vtp mode transparent
+udld enable
+
+!
+!
+!
+ip name-server 8.8.8.8
+ip cef
+no ipv6 cef
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause l2ptguard
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause unicast-flood
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause link-monitor-failure
+errdisable recovery cause oam-remote-failure
+errdisable recovery cause loopback
+errdisable recovery cause psp
+archive
+ log config
+  logging enable
+  notify syslog contenttype plaintext
+  hidekeys
+!
+spanning-tree mode rapid-pvst
+spanning-tree portfast edge bpduguard default
+spanning-tree extend system-id
+!
+!
+vlan 2
+ name Python_VLAN 2
+!
+vlan 3
+ name Python_VLAN 3
+!
+vlan 4
+ name Python_VLAN 4
+!
+vlan 5
+ name Python_VLAN 5
+!
+vlan 6
+ name Python_VLAN 6
+!
+vlan 7
+ name Python_VLAN 7
+!
+vlan 8
+ name Python_VLAN 8
+!
+vlan 9
+ name Python_VLAN 9
+!
+vlan 10
+ name Python_VLAN 10
+!
+vlan 11
+ name Python_VLAN 11
+!
+vlan 12
+ name Python_VLAN 12
+!
+vlan 13
+ name Python_VLAN 13
+!
+vlan 14
+ name Python_VLAN 14
+!
+vlan 15
+ name Python_VLAN 15
+!
+vlan 16
+ name Python_VLAN 16
+!
+vlan 17
+ name Python_VLAN 17
+!
+vlan 18
+ name Python_VLAN 18
+!
+vlan 19
+ name Python_VLAN 19
+!
+vlan 20
+ name Python_VLAN 20
+!
+vlan 100
+ name Data
+!
+vlan 101
+ name Voice
+!
+vlan 102
+ name Test
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.1.2 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description Python Test
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ description Python Test
+ no switchport
+ ip address 10.1.1.2 255.255.255.252
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ description Python Test
+ switchport mode access
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ description Python Test
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ negotiation auto
+!
+interface Vlan1
+ description In-band Management
+ ip address 192.168.1.233 255.255.255.0
+!
+router ospf 1
+ network 10.1.1.0 0.0.0.255 area 0
+ network 10.1.2.0 0.0.0.255 area 2
+ network 10.1.3.0 0.0.0.255 area 3
+ network 192.168.1.0 0.0.0.255 area 0
+!
+router bgp 65000
+ bgp log-neighbor-changes
+ neighbor 10.1.1.1 remote-as 65000
+!
+ip forward-protocol nd
+!
+no ip http server
+ip http secure-server
+!
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip scp server enable
+!
+!
+access-list 100 permit icmp any any
+access-list 100 permit tcp any any eq domain
+access-list 100 permit tcp any any eq www
+access-list 100 permit tcp any any eq 443
+access-list 100 permit tcp any any eq 22
+!
+!
+!
+!
+control-plane
+!
+banner exec ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner incoming ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner login ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+!
+line con 0
+line aux 0
+line vty 0 4
+ login local
+ transport input all
+!
+ntp update-calendar
+ntp server 87.81.181.2
+!
+end

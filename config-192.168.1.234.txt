@@ -1,0 +1,236 @@
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname SW2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 8 $8$3n6Ke.4UnYNjgf$8hgF/r2A5iygLkYjmZcPixvMHA99PwAmoJOy6c43yJw
+!
+username jbc privilege 15 secret 8 $8$Fsc8RZOMYcc0Wv$IGbAhIXixBgKL6o3Rq9CZS1EKSxz.sLQhw0Q1/YIdG2
+username test privilege 15 secret 8 $8$h5AwBJpK2SSbBf$sO1UYCcA321itS3tkA/atnCMWa0xjxtf8KohiMzAvuM
+no aaa new-model
+!
+!
+!
+!
+!
+vtp mode transparent
+!
+!
+!
+ip name-server 8.8.8.8
+ip cef
+no ipv6 cef
+!
+!
+archive
+ log config
+  logging enable
+  notify syslog contenttype plaintext
+  hidekeys
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+vlan 2
+ name Python_VLAN 2
+!
+vlan 3
+ name Python_VLAN 3
+!
+vlan 4
+ name Python_VLAN 4
+!
+vlan 5
+ name Python_VLAN 5
+!
+vlan 6
+ name Python_VLAN 6
+!
+vlan 7
+ name Python_VLAN 7
+!
+vlan 8
+ name Python_VLAN 8
+!
+vlan 9
+ name Python_VLAN 9
+!
+vlan 10
+ name Python_VLAN 10
+!
+vlan 11
+ name Python_VLAN 11
+!
+vlan 12
+ name Python_VLAN 12
+!
+vlan 13
+ name Python_VLAN 13
+!
+vlan 14
+ name Python_VLAN 14
+!
+vlan 15
+ name Python_VLAN 15
+!
+vlan 16
+ name Python_VLAN 16
+!
+vlan 17
+ name Python_VLAN 17
+!
+vlan 18
+ name Python_VLAN 18
+!
+vlan 19
+ name Python_VLAN 19
+!
+vlan 20
+ name Python_VLAN 20
+!
+vlan 100
+ name Data
+!
+vlan 101
+ name Voice
+!
+vlan 102
+ name Test
+!
+vlan 200
+ name Python_VLAN_200
+!
+vlan 201
+ name Python_VLAN_201
+!
+vlan 202
+ name Python_VLAN_202
+!
+vlan 203
+ name Python_VLAN_203
+!
+vlan 204
+ name Python_VLAN_204
+!
+vlan 205
+ name Python_VLAN_205
+!
+vlan 300
+ name Python_VLAN_300
+!
+vlan 400
+ name Python_VLAN_400
+!
+vlan 500
+ name Python_VLAN_500
+!
+vlan 600
+ name Python_VLAN_600
+!
+vlan 700
+ name Python_VLAN_700
+!
+vlan 800
+ name Python_VLAN_800
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ negotiation auto
+!
+interface Vlan1
+ ip address 192.168.1.234 255.255.255.0
+!
+router ospf 1
+ network 10.1.1.0 0.0.0.255 area 0
+ network 10.1.2.0 0.0.0.255 area 2
+ network 10.1.3.0 0.0.0.255 area 3
+ network 192.168.1.0 0.0.0.255 area 0
+!
+ip forward-protocol nd
+!
+ip http server
+ip http secure-server
+!
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip scp server enable
+!
+!
+access-list 100 permit icmp any any
+access-list 100 permit tcp any any eq domain
+access-list 100 permit tcp any any eq www
+access-list 100 permit tcp any any eq 443
+access-list 100 permit tcp any any eq 22
+!
+!
+!
+!
+control-plane
+!
+banner exec ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner incoming ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner login ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+!
+line con 0
+line aux 0
+line vty 0 4
+ login local
+ transport input all
+!
+!
+end
