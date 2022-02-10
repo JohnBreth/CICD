@@ -7,4 +7,3 @@ pytest
 nornir
 nornir-utils
 nornir-napalm
-tools
