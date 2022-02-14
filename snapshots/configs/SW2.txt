@@ -13,7 +13,7 @@ boot-end-marker
 enable secret 8 $8$3n6Ke.4UnYNjgf$8hgF/r2A5iygLkYjmZcPixvMHA99PwAmoJOy6c43yJw
 !
 username jbc privilege 15 secret 8 $8$Fsc8RZOMYcc0Wv$IGbAhIXixBgKL6o3Rq9CZS1EKSxz.sLQhw0Q1/YIdG2
-username test privilege 15 secret 8 $8$h5AwBJpK2SSbBf$sO1UYCcA321itS3tkA/atnCMWa0xjxtf8KohiMzAvuM
+username test privilege 15 secret 8 $8$9lQhX6CpBX6Wev$wP.55Ynnqfo0LjwJiicI0Ekl42RC16MrcESlY2MWHSw
 no aaa new-model
 !
 !
