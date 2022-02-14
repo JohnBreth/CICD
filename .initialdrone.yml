@@ -19,8 +19,8 @@ steps:
   environment:
     PASSWORD:
       from_secret: PASSWORD
-      USER:
-        from_secret: USER
+    USER:
+      from_secret: USER
   commands:
   - python build.py --dry_run
 
