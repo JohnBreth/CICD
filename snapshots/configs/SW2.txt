@@ -194,7 +194,8 @@ access-list 100 permit tcp any any eq 443
 access-list 100 permit tcp any any eq 22
 !
 !
-!
+login on-failure log
+login on-success log
 !
 control-plane
 !
