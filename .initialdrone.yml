@@ -49,8 +49,26 @@ steps:
 #  - pip3 install -r requirements.txt
   - python3 bat.py
 
-#trigger:
-#  branch:
-#    exclude:
-#    - main
-#    - master
+- name: Suzieq Check
+  image: python:3.8
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
+  commands:
+  - pip install suzieq rich
+  - python test_suzieq.py
+  when:
+    branch:
+    - master
+    - main
+  volumes:
+  - name: suzieq
+    path: /tmp/suz
+
+trigger:
+  branch:
+    exclude:
+    - main
+    - master
