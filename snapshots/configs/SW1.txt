@@ -62,6 +62,8 @@ archive
   logging enable
   notify syslog contenttype plaintext
   hidekeys
+ path flash0:archive
+ write-memory
 !
 spanning-tree mode rapid-pvst
 spanning-tree portfast edge bpduguard default
