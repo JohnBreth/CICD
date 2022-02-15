@@ -67,8 +67,8 @@ steps:
   - name: suzieq
     path: /tmp/suz
 
-trigger:
-  branch:
-    exclude:
-    - main
-    - master
+#trigger:
+# branch:
+#    exclude:
+#   - main
+#   - master
