@@ -139,7 +139,10 @@ vlan 102
 !
 !
 !
-!
+something super fake
+   welcome to the world of tomorrow
+   its over 9000
+   router-id infinity
 !
 !
 !
