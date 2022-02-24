@@ -57,6 +57,7 @@ steps:
     USER:
       from_secret: USER
   commands:
+  - pip install --upgrade pip
   - pip install suzieq rich
   - python test_suzieq.py
   when:
