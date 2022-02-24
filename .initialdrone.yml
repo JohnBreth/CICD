@@ -50,7 +50,7 @@ steps:
   - python3 bat.py
 
 - name: Suzieq Check
-  image: python:3.8
+  image: johnbreth/suzieq
   environment:
     PASSWORD:
       from_secret: PASSWORD
