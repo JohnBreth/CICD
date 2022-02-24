@@ -136,7 +136,7 @@ vlan 101
 vlan 102
  name Test
 !
-!
+cdp run
 !
 !
 !

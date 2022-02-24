@@ -144,7 +144,7 @@ vlan 700
 vlan 800
  name Python_VLAN_800
 !
-!
+cdp run
 !
 !
 !
