@@ -49,15 +49,15 @@ steps:
 #  - pip3 install -r requirements.txt
   - python3 bat.py
 
-- name: Suzieq Check
-  image: johnbreth/suzieq
-  environment:
-    PASSWORD:
-      from_secret: PASSWORD
-    USER:
-      from_secret: USER
-  commands:
-  - python test_suzieq.py
+#- name: Suzieq Check
+#  image: johnbreth/suzieq
+#  environment:
+#    PASSWORD:
+#      from_secret: PASSWORD
+#    USER:
+#      from_secret: USER
+#  commands:
+#  - python test_suzieq.py
 #  when:
 #   branch:
 #    - master
