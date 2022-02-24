@@ -59,16 +59,16 @@ steps:
   commands:
   - python test_suzieq.py
 #  when:
-#    branch:
+#   branch:
 #    - master
 #    - main
-  volumes:
-  - name: suzieq
-    path: /tmp/suz
-volumes:
-- name: suzieq
-  host:
-    path: /home/jb/Docker/suz
+#  volumes:
+#  - name: suzieq
+#    path: /tmp/suz
+#volumes:
+#- name: suzieq
+#  host:
+#    path: /home/jb/Docker/suz
 #trigger:
 # branch:
 #    exclude:
