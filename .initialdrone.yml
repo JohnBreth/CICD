@@ -65,12 +65,8 @@ steps:
 #  volumes:
 #  - name: suzieq
 #    path: /tmp/suz
+
 #volumes:
 #- name: suzieq
 #  host:
 #    path: /home/jb/Docker/suz
-#trigger:
-# branch:
-#    exclude:
-#   - main
-#   - master
