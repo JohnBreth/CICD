@@ -57,7 +57,7 @@ steps:
     USER:
       from_secret: USER
   commands:
-  - python suzieq rich
+  - pip install suzieq rich
   - python test_suzieq.py
   when:
    branch:
