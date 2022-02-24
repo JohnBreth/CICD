@@ -164,7 +164,6 @@ interface GigabitEthernet0/1
  no switchport
  ip address 10.1.1.2 255.255.255.252
  negotiation auto
-
 !
 interface GigabitEthernet0/2
  description Python Test
