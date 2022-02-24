@@ -10,7 +10,7 @@ from rich.console import Console
 
 console = Console(color_system="truecolor")
 
-# OSPF Testing
+# OSPF Testing (need to research)
 # ospf_tbl = get_sqobject("ospf")
 # ospf_df = pd.DataFrame(ospf_tbl().aver())
 # ospf_fail = 0
