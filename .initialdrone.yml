@@ -50,13 +50,14 @@ steps:
   - python3 bat.py
 
 - name: Suzieq Check
-  image: juliopdx/suzieq
+  image: python:3.8
   environment:
     PASSWORD:
       from_secret: PASSWORD
     USER:
       from_secret: USER
   commands:
+  - python suzieq rich
   - python test_suzieq.py
   when:
    branch:
