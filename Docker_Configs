@@ -36,7 +36,7 @@ docker run --name batfish \
     -d batfish/batfish
 
 
-#Docker SuzieQ config. Change the home directories below to where ever you have have the suzieq folders/config
+#Docker SuzieQ config. Change the home directories below to where ever you have have the suzieq folders/config. This container does the polling and the other container spun up in the YAML config queries against this one
 docker run -d --restart always -itd \
 -v /home/jb/Docker/suz/parquet-out:/suzieq/parquet \
 -v /home/jb/Docker/inv.yaml:/suzieq/inv.yaml \
