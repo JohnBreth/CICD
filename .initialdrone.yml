@@ -11,10 +11,6 @@ steps:
       from_secret: PASSWORD
     USER:
       from_secret: USER
-    commands:
-    - pip3 install -r requirements.txt
-    - python3 bat.py
-    when:
-      branch:
-      - master
-      - main
+  commands:
+  - pip3 install -r requirements.txt
+  - python3 bat.py
