@@ -4,6 +4,40 @@ name: Testing Python CI/CD
 
 
 steps:
+- name: Black Code Format Check
+  image: johnbreth/netauto
+  commands:
+  - black . --check
+
+- name: Batfish Prechecks
+  image: johnbreth/netauto
+  commands:
+  - python batfishcheck.py
+
+- name: Precheck Configuration Diff
+  image: johnbreth/netauto
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
+  commands:
+  - python build.py --dry_run
+
+- name: Deploy Configuration
+  image: johnbreth/netauto
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
+  commands:
+  - python build.py --no_dry_run
+  when:
+    branch:
+    - master
+    - main
+
 - name: Check IP Interfaces
   image: johnbreth/netauto
   environment:
@@ -14,3 +48,27 @@ steps:
   commands:
 #  - pip3 install -r requirements.txt
   - python3 bat.py
+
+- name: Suzieq Check
+  image: python:3.8
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
+  commands:
+  - pip install --upgrade pip
+  - pip install suzieq rich
+  - python test_suzieq.py
+  when:
+   branch:
+    - master
+    - main
+  volumes:
+  - name: suzieq
+    path: /tmp/suz
+
+volumes:
+- name: suzieq
+  host:
+    path: /home/jb/Docker/suz
