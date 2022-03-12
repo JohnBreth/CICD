@@ -5,12 +5,12 @@ name: Testing Python CI/CD
 
 steps:
 - name: Check IP Interfaces
-  image: python
-#  environment:
-#    PASSWORD:
-#      from_secret: PASSWORD
-#    USER:
-#      from_secret: USER
+  image: johnbreth/netauto
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
   commands:
-  - pip3 install -r requirements.txt
+#  - pip3 install -r requirements.txt
   - python3 bat.py
