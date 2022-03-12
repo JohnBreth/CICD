@@ -2,7 +2,6 @@ kind: pipeline
 type: docker
 name: Testing Python CI/CD
 
-
 steps:
 - name: Check IP Interfaces
   image: python
@@ -14,5 +13,3 @@ steps:
   commands:
   - pip3 install -r requirements.txt
   - python3 bat.py
-
-
