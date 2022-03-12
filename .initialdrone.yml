@@ -14,8 +14,8 @@ steps:
   - pip3 install -r requirements.txt
   - python3 bat.py
 
-trigger:
-  branch:
-    exclude:
-    - main
-    - master
+#trigger:
+#  branch:
+#    exclude:
+#    - main
+#    - master
