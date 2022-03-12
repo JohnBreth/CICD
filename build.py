@@ -9,7 +9,7 @@ from nornir_utils.plugins.functions import print_result
 from tools import nornir_set_creds
 
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser() xx
 parser.add_argument(
     "--dry_run", dest="dry", action="store_true", help="Will not run on devices"
 )
