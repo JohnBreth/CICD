@@ -4,24 +4,14 @@ name: Testing Python CI/CD
 
 steps:
 
-- name: Black Code Format Check
-  image: johnbreth/netauto
-  commands:
-  - black . --check
-
-- name: Batfish Prechecks
-  image: johnbreth/netauto
-  commands:
-  - python batfishcheck.py
-
 - name: Check IP Interfaces
-  image: johnbreth/netauto
+  image: python
   environment:
     PASSWORD:
       from_secret: PASSWORD
     USER:
       from_secret: USER
   commands:
- # - pip3 install -r requirements.txt
+  - pip3 install -r requirements.txt
   - python3 checkip.py
 
