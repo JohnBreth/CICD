@@ -16,7 +16,7 @@ parser.add_argument(
 parser.add_argument(
     "--no_dry_run", dest="dry", action="store_false", help="Will run on devices"
 )
-parser.set_defaults(dry=True) xxxxx
+parser.set_defaults(dry=True)
 args = parser.parse_args()
 
 
