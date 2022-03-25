@@ -13,6 +13,16 @@ steps:
   commands:
   - python batfishcheck.py
 
+- name: Precheck Configuration Diff
+  image: johnbreth/netauto
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
+  commands:
+  - python build.py --dry_run
+
 - name: Check IP Interfaces
   image: johnbreth/netauto
   environment:
