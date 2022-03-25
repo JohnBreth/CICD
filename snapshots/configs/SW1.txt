@@ -70,6 +70,8 @@ spanning-tree portfast edge bpduguard default
 spanning-tree extend system-id
 !
 
+this won't work!
+
 vlan 2
  name Python_VLAN 2
 !
