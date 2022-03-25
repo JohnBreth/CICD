@@ -23,6 +23,20 @@ steps:
   commands:
   - python build.py --dry_run
 
+- name: Deploy Configuration
+  image: johnbreth/netauto
+  environment:
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
+  commands:
+  - python build.py --no_dry_run
+  when:
+    branch:
+    - master
+    - main
+
 - name: Check IP Interfaces
   image: johnbreth/netauto
   environment:
