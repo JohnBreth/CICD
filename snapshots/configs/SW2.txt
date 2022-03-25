@@ -149,7 +149,7 @@ vlan 801
 !
 !
 !
-!
+make something up
 !
 !
 !
@@ -157,7 +157,7 @@ vlan 801
 !
 interface GigabitEthernet0/0
  switchport trunk encapsulation dot1q
- switchport mode dunk
+ switchport mode trunk
  negotiation auto
 !
 interface GigabitEthernet0/1
