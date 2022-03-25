@@ -150,10 +150,8 @@ vlan 102
 !
 interface Loopback0
  ip address 1.1.1.2 255.255.255.255
-interface Loopback2
- ip address 2.1.1.3 255.255.255.255
-interface Loopback3
- ip address 3.3.3.3 255.255.255.255
+
+interface lootback1
 
 interface GigabitEthernet0/0
  description Python Tests
