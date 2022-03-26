@@ -1,4 +1,3 @@
-version 15.2
 service timestamps debug datetime msec localtime
 service timestamps log datetime msec localtime
 no service password-encryption
@@ -30,6 +29,8 @@ udld enable
 !
 ip name-server 8.8.8.8
 ip cef
+login on-failure log
+login on-success log
 no ipv6 cef
 !
 !
@@ -69,8 +70,7 @@ spanning-tree mode rapid-pvst
 spanning-tree portfast edge bpduguard default
 spanning-tree extend system-id
 !
-
-
+!
 vlan 2
  name Python_VLAN 2
 !
@@ -82,7 +82,7 @@ vlan 4
 !
 vlan 5
  name Python_VLAN 5
-!
+!         
 vlan 6
  name Python_VLAN 6
 !
@@ -128,7 +128,7 @@ vlan 19
 vlan 20
  name Python_VLAN 20
 !
-vlan 100
+vlan 100  
  name Data
 !
 vlan 101
@@ -136,6 +136,8 @@ vlan 101
 !
 vlan 102
  name Test
+!
+! 
 !
 !
 !
@@ -150,10 +152,10 @@ vlan 102
 !
 interface Loopback0
  ip address 1.1.1.2 255.255.255.255
-
-interface loopback3
+!
+interface Loopback3
  ip address 3.3.3.3 255.255.255.255
- no shut
+!
 interface GigabitEthernet0/0
  description Python Tests
  switchport trunk encapsulation dot1q
@@ -209,8 +211,7 @@ access-list 100 permit tcp any any eq 443
 access-list 100 permit tcp any any eq 22
 !
 !
-login on-failure log
-login on-success log
+!
 !
 control-plane
 !
