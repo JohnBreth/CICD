@@ -154,12 +154,6 @@ vlan 102
 interface Loopback0
  ip address 1.1.1.2 255.255.255.255
 !
-interface Loopback1
- ip address 1.1.1.1 255.255.255.255
-!
-interface Loopback3
- ip address 3.3.3.3 255.255.255.255
-!
 interface GigabitEthernet0/0
  description Python Tests
  switchport trunk encapsulation dot1q
