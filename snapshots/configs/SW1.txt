@@ -150,8 +150,7 @@ vlan 102
 !
 interface Loopback0
  ip address 1.1.1.2 255.255.255.255
-interface Loopback2
- ip address 2.1.1.4 255.255.255.255
+
 interface loopback3
  ip address 3.3.3.3 255.255.255.255
  no shut
