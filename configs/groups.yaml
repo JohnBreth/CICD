@@ -1,3 +1,7 @@
 ---
 ios:
   platform: ios
+  extras:
+    optional_args:
+      fast_cli: False
+      global_delay_factor: 4
