@@ -135,7 +135,7 @@ vlan 100
 vlan 101
  name Voice
 !
-vlan 102
+vlan 103
  name Test
 !
 ! 
